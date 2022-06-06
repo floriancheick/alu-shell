@@ -1,2 +1,3 @@
 #!/bin/bash
-sudo chmod 455 hello
+sudo chmod 555 hello
+
