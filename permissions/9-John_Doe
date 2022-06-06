@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo chmod 443 hello
+sudo chmod 753 hello
