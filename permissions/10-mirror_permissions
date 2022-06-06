@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo chmod 340 hello
+sudo chmod 350 hello
