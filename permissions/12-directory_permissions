@@ -1,3 +1,2 @@
 #!/bin/bash
-mkdir my_dir
 sudo chmod 751 my_dir
