@@ -1,0 +1,4 @@
+#!/bin/bash
+sudo su
+useradd betty
+su betty
