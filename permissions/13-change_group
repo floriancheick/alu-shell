@@ -1,3 +1,2 @@
 #!/bin/bash
-sudo groupadd school
 chgrp school hello
