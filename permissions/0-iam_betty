@@ -1,4 +1,3 @@
 #!/bin/bash
-su
-useradd betty
+sudo useradd betty
 
