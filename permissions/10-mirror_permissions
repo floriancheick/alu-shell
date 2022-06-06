@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo chmod 073 hello
+sudo chmo 345 hello
