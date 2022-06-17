@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-#This script will display "Best School" 10 times using the until loop.
+#!This bash script will dipslays Best School 10 times
 i=0
-until ((i==10 ));
+until (( i==10 ));
 do
-echo "Best school";
-(( i++ ));
+echo "Best School";
+((i++));
 done
