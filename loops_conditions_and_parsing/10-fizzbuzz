@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#!This bash script will displays numbers from 1 to 10 including FizzBuz when the number is multiplie by 3 and 5,Fizz when the number is multiplie by 3,Buzz when the number is multiplie by 5
+i=1
+while (( "$i" <= 100 ));
+do
+if (( "$i" % 3 == 0 && "$i" % 5 == 0 )); then
+echo "FizzBuzz"
+elif (( "$i" % 3 == 0 )); then
+echo "Fizz"
+elif (( "$i" % 5 == 0 )); then
+echo "Buzz"
+else
+echo "$i"
+fi
+(( i++ ))
+done
