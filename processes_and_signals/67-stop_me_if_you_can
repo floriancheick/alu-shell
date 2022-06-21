@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This bash script stops 7-highlander process running in another terminal
+pkill -f "7-highlander"
+
