@@ -1,32 +1,32 @@
 #!/usr/bin/env bash
 # This script manages the "manager_my_process" scipt
-pattern=$1
-tmpfile="/var/run/my_process.pid"
-start_create-pid ()
-{
-./manage_my_process &
-echo "$!" >> "$tmpfile"
-}
-terminate_delete ()
-{
-sudo pkill -f "./manager_my_process"
-rm  "$tmpfile"
-}
-case "$pattern" in
-start)
-echo "manage_my_process started"
-start_create-pif
-;;
-stop)
-echo "manage_my_process stoppped"
-terminate_delete
-;;
-restart)
-echo "manage_my_process restarted"
-terminate_delete
-start_create-pid
-;;
-*)
-echo "Usage: manage_my_process {start|stop|restart}"
-;;
+if [ "$#" -ne 1 ]
+then
+  echo "Usage: manage_my_process {start|stop|restart}"
+  exit
+fi
+
+case "$1" in
+    "start")
+  ./manage_my_process &
+  pgrep -f /manage_my_process > my_process.pid
+  sudo cp my_process.pid /var/run
+  echo "manage_my_process started"
+  ;;
+    "stop")
+  sudo rm /var/run/my_process.pid
+  pkill -f /manage_my_process
+  echo "manage_my_process stopped"
+  ;;
+    "restart")
+  pkill -f /manage_my_process
+  sudo rm /var/run/my_process.pid
+  ./manage_my_process &
+  pgrep -f /manage_my_process > my_process.pid
+  sudo cp my_process.pid /var/run
+  echo "manage_my_process restarted"
+  ;;
+    *)
+  echo "Usage: manage_my_process {start|stop|restart}"
+  ;;
 esac
