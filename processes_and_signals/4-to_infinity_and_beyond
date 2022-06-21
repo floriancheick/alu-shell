@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 # This bash script will dipslays To infinity and beyond indefinitely
 while :
 do
