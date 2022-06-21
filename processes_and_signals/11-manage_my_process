@@ -1,27 +1,32 @@
 #!/usr/bin/env bash
 # This script manages the "manager_my_process" scipt
 pattern=$1
+tmpfile="/var/run/my_process.pid"
 start_create-pid ()
 {
 ./manage_my_process &
-echo "$!" >> "/var/run/my_process.pid"
+echo "$!" >> "$tmpfile"
 }
 terminate_delete ()
 {
 sudo pkill -f "./manager_my_process"
-sudo rm -f "/var/run/my_process.pid"
+rm  "$tmpfile"
 }
 case "$pattern" in
 start)
 echo "manage_my_process started"
-start_create-pif;;
+start_create-pif
+;;
 stop)
 echo "manage_my_process stoppped"
-terminate_delete;;
+terminate_delete
+;;
 restart)
 echo "manage_my_process restarted"
 terminate_delete
-start_create-pid;;
+start_create-pid
+;;
 *)
-echo "Usage: manage_my_process {start|stop|restart}";;
+echo "Usage: manage_my_process {start|stop|restart}"
+;;
 esac
