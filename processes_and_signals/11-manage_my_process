@@ -7,26 +7,26 @@ then
 fi
 
 case "$1" in
-    "start")
-  ./manage_my_process &
-  pgrep -f /manage_my_process > my_process.pid
-  sudo cp my_process.pid /var/run
-  echo "manage_my_process started"
-  ;;
-    "stop")
-  sudo rm /var/run/my_process.pid
-  pkill -f /manage_my_process
-  echo "manage_my_process stopped"
-  ;;
-    "restart")
-  pkill -f /manage_my_process
-  sudo rm /var/run/my_process.pid
-  ./manage_my_process &
-  pgrep -f /manage_my_process > my_process.pid
-  sudo cp my_process.pid /var/run
-  echo "manage_my_process restarted"
-  ;;
-    *)
-  echo "Usage: manage_my_process {start|stop|restart}"
-  ;;
+"start")
+./manage_my_process &
+pgrep -f /manage_my_process > my_process.pid
+sudo cp my_process.pid /var/run
+echo "manage_my_process started"
+;;
+"stop")
+sudo rm /var/run/my_process.pid
+pkill -f /manage_my_process
+echo "manage_my_process stopped"
+;;
+"restart")
+pkill -f /manage_my_process
+sudo rm /var/run/my_process.pid
+./manage_my_process &
+pgrep -f /manage_my_process > my_process.pid
+sudo cp my_process.pid /var/run
+echo "manage_my_process restarted"
+;;
+*)
+echo "Usage: manage_my_process {start|stop|restart}"
+;;
 esac
