@@ -19,7 +19,7 @@ case "$argument" in
 	;;
     stop)
 	stop_remove
-	echo "manage_my_process stiopped"
+	echo "manage_my_process stopped"
 	;;
     restart)
 	stop_remove
